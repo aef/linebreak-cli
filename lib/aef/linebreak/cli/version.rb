@@ -2,7 +2,7 @@
 =begin
 Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
 
-This file is part of Linebreak.
+This file is part of Linebreak::CLI.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -17,22 +17,16 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 =end
 
-require 'aef/linebreak/pathname_conversion'
-
-class Aef::Linebreak::VersionCommand
-  def execute
-    # Read licensing information from the top of this file
-    license = File.read(__FILE__)[/=begin\n(.*)\n=end/m, 1]
-
-    puts <<-TEXT
-Linebreak #{Aef::Linebreak::VERSION}
-
-Project: https://github.com/aef/linebreak/
-Documentation: http://rubydoc.info/aef/linebreak/
-
-#{license}
-    TEXT
-
-    exit false
+module Aef
+  module Linebreak
+    module CLI
+  
+      # The currently loaded library version
+      #
+      # Using Semantic Versioning (2.0.0-rc.1) rules
+      # @see http://semver.org/
+      VERSION = '2.0.0pre.1'.freeze
+      
+    end
   end
 end

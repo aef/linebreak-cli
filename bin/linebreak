@@ -3,7 +3,7 @@
 =begin
 Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
 
-This file is part of Linebreak.
+This file is part of Linebreak::CLI.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -18,15 +18,12 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 =end
 
-require 'rubygems'
-require 'aef/linebreak'
+require 'bundler'
 
-# User friendly message if user-choices is not available
-begin
-  require 'user-choices'
-rescue LoadError
-  warn "This command needs the user-choices gem to be installed.\n\nSolution: gem install user-choices"; exit false
-end
+Bundler.setup
+
+require 'aef/linebreak/cli'
+require 'user-choices'
 
 commands_available = {
   :encode => 'Convert all linebreak encodings of a file',
@@ -57,6 +54,6 @@ else
     command_name = commands_available[command_name]
   end
 
-  command = Aef::Linebreak.const_get("#{command_name.to_s.capitalize}Command").new
+  command = Aef::Linebreak::CLI.const_get("#{command_name.to_s.capitalize}Command").new
   S4tUtils.with_pleasant_exceptions {command.execute}
 end

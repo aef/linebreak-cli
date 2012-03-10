@@ -2,7 +2,7 @@
 =begin
 Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
 
-This file is part of Linebreak.
+This file is part of Linebreak::CLI.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -17,9 +17,9 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 =end
 
+require 'bundler/gem_tasks'
 require 'rake'
 require 'pathname'
-require 'bundler/gem_tasks'
 require 'yard'
 require 'rspec/core/rake_task'
 
@@ -39,8 +39,9 @@ end
 
 desc "Opens an interactive console with the library loaded"
 task :console do
+  Bundler.setup
   require 'pry'
-  require 'linebreak'
+  require 'aef/linebreak/cli'
   Pry.start
 end
 

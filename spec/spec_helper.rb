@@ -2,7 +2,7 @@
 =begin
 Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
 
-This file is part of Linebreak.
+This file is part of Linebreak::CLI.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -17,11 +17,21 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 =end
 
+require 'bundler'
+
+Bundler.setup
+
+unless defined?(Rubinius)
+  require 'simplecov'
+  SimpleCov.start
+end
+
+require 'pry'
 require 'rspec'
 require 'tempfile'
 require 'rbconfig'
-require 'popen4'
-require 'linebreak'
+require 'childprocess'
+require 'aef/linebreak/cli'
 
 module LinebreakSpecHelper
   INTERPRETER = Pathname(RbConfig::CONFIG['bindir']) + RbConfig::CONFIG['ruby_install_name']
@@ -29,6 +39,20 @@ module LinebreakSpecHelper
 
   def executable_path
     "#{INTERPRETER} -Ilib bin/linebreak"
+  end
+
+  def command(arguments, options = {})
+    argument_array = arguments.split(' ')
+
+    process = ChildProcess.build(INTERPRETER.to_s, '-Ilib', 'bin/linebreak', *argument_array)
+    process.duplex = options[:duplex]
+
+    stdout, process.io.stdout = IO.pipe
+    stderr, process.io.stderr = IO.pipe
+    
+    process.start
+
+    [process, stdout, stderr]
   end
 
   def fixture_path(name)
@@ -39,52 +63,17 @@ module LinebreakSpecHelper
     RbConfig::CONFIG['target_os'].downcase.include?('win')
   end
 
-  def unix_fixture
-    "Abcdef\nAbcdef\nAbcdef"
-  end
-
-  def windows_fixture
-    "Abcdef\r\nAbcdef\r\nAbcdef"
-  end
-
-  def mac_fixture
-    "Abcdef\rAbcdef\rAbcdef"
-  end
-
-  def custom_fixture
-    "AbcdeffnordAbcdeffnordAbcdef"
-  end
-
-  def none_fixture
-    "AbcdefAbcdefAbcdef"
-  end
-
-  def unix_windows_fixture
-    unix_fixture + windows_fixture
-  end
-
-  def windows_mac_fixture
-    windows_fixture + mac_fixture
-  end
-
-  def mac_unix_fixture
-    mac_fixture + unix_fixture
-  end
-
-  def unix_windows_mac_fixture
-    unix_fixture + windows_fixture + mac_fixture
-  end
-
   def version_message
     <<-EOS
-Linebreak #{Aef::Linebreak::VERSION}
+Linebreak::CLI #{Aef::Linebreak::CLI::VERSION}
+using Linebreak #{Aef::Linebreak::VERSION}
 
-Project: https://github.com/aef/linebreak/
-Documentation: http://rubydoc.info/aef/linebreak/
+Project: https://github.com/aef/linebreak-cli/
+Documentation: http://rubydoc.info/aef/linebreak-cli/
 
 Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
 
-This file is part of Linebreak.
+This file is part of Linebreak::CLI.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -120,18 +109,6 @@ PERFORMANCE OF THIS SOFTWARE.
 
     result
   end
-end
-
-if Gem::Version.new(RUBY_VERSION.dup) < Gem::Version.new('1.8.7')
-  warn %{\nThe 16 specs of the "encodings" methods fail on 1.8.6 and } +
-    'below because of invalid hash comparison which affects ' +
-    'comparison of the result Sets. This should not be a big problem.'
-end
-
-if RUBY_PLATFORM == 'java'
-  warn %{\nAll 6 specs of the "encodings" command fail because JRuby does } +
-    'not support the fork method. This should only affect the specs, the ' +
-    'commandline tool should still work fine.'
 end
 
 RSpec.configure do |config|

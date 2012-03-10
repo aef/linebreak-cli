@@ -2,7 +2,7 @@
 =begin
 Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
 
-This file is part of Linebreak.
+This file is part of Linebreak::CLI.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -17,6 +17,40 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 =end
 
-require 'aef/linebreak'
+module Aef
+  module Linebreak
+    module CLI
+      
+      # This class adds the type :pathname to user-choices
+      #
+      # @private
+      class ConversionToPathname < UserChoices::Conversion
+        def self.described_by?(conversion_tag)
+          conversion_tag == :pathname
+        end
+      
+        def description
+          "a pathname"
+        end
+      
+        def suitable?(actual)
+          true
+        end
+      
+        def convert(value)
+          case value
+          when Array
+            pathnames = []
+            
+            value.each {|path| pathnames << Pathname(path) }
+      
+            pathnames
+          else
+            Pathname(value)
+          end
+        end
+      end
 
-String.send(:include, Aef::Linebreak)
+    end
+  end
+end

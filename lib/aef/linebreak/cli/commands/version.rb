@@ -2,7 +2,7 @@
 =begin
 Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
 
-This file is part of Linebreak.
+This file is part of Linebreak::CLI.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -17,30 +17,32 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 =end
 
-# This class adds the type :pathname to user-choices
-class Aef::Linebreak::ConversionToPathname < UserChoices::Conversion
-  def self.described_by?(conversion_tag)
-    conversion_tag == :pathname
-  end
+module Aef
+  module Linebreak
+    module CLI
 
-  def description
-    "a pathname"
-  end
+      # Command-line sub-command to display version and license info.
+      class VersionCommand
 
-  def suitable?(actual)
-    true
-  end
-
-  def convert(value)
-    case value
-    when Array
-      pathnames = []
+        # Main program
+        def execute
+          # Read licensing information from the top of this file
+          license = File.read(__FILE__)[/=begin\n(.*)\n=end/m, 1]
       
-      value.each {|path| pathnames << Pathname(path) }
+          puts <<-TEXT
+Linebreak::CLI #{Aef::Linebreak::CLI::VERSION}
+using Linebreak #{Aef::Linebreak::VERSION}
 
-      pathnames
-    else
-      Pathname(value)
+Project: https://github.com/aef/linebreak-cli/
+Documentation: http://rubydoc.info/aef/linebreak-cli/
+
+#{license}
+          TEXT
+      
+          exit false
+        end
+      end
+
     end
   end
 end

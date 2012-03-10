@@ -2,7 +2,7 @@
 =begin
 Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
 
-This file is part of Linebreak.
+This file is part of Linebreak::CLI.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -17,4 +17,32 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 =end
 
+require 'user-choices'
 require 'aef/linebreak'
+
+# Namespace for projects of Alexander E. Fischer <aef@raxys.net>.
+#
+# If you want to be able to simply type Example instead of Aef::Example to
+# address classes in this namespace simply write the following before using the
+# classes.
+#
+# @example Including the namespace
+#   include Aef
+# @author Alexander E. Fischer
+module Aef
+
+  # Namespace for the linebreak library
+  module Linebreak
+
+    # Namespace for the linebreak command-line tool
+    module CLI
+  
+    end
+  end
+end
+
+require 'aef/linebreak/cli/version'
+require 'aef/linebreak/cli/pathname_conversion'
+require 'aef/linebreak/cli/commands/encode'
+require 'aef/linebreak/cli/commands/encodings'
+require 'aef/linebreak/cli/commands/version'

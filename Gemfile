@@ -2,7 +2,7 @@
 =begin
 Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
 
-This file is part of Linebreak.
+This file is part of Linebreak::CLI.
 
 Permission to use, copy, modify, and/or distribute this software for any
 purpose with or without fee is hereby granted, provided that the above
@@ -21,3 +21,5 @@ source 'http://rubygems.org'
 
 # Specify your gem's dependencies in weekling.gemspec
 gemspec
+
+gem 'linebreak', '~> 2.0.0pre.1', :path => '/home/dimedo/projects/aef/linebreak'

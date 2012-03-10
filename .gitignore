@@ -2,8 +2,6 @@
 nbproject
 .idea
 
-Gemfile.lock
-
 doc
 coverage
 pkg
