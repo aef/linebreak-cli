@@ -46,10 +46,10 @@ Earlier versions of Linebreak were called BreakVerter.
 
   s.required_ruby_version = '>= 1.8.7'
 
-  s.add_dependency('bundler', '~> 1.0.21')
-  s.add_dependency('linebreak', '~> 2.0.0pre.1')
+  s.add_dependency('linebreak', '~> 2.0.0')
   s.add_dependency('user-choices', '~> 1.1.6.1')
 
+  s.add_development_dependency('bundler', '~> 1.0.21')
   s.add_development_dependency('rake', '~> 0.9.2')
   s.add_development_dependency('rspec', '~> 2.8.0')
   s.add_development_dependency('simplecov', '~> 0.6.1')
