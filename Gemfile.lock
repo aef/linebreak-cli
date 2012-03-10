@@ -6,11 +6,6 @@ PATH
       linebreak (~> 2.0.0pre.1)
       user-choices (~> 1.1.6.1)
 
-PATH
-  remote: /home/dimedo/projects/aef/linebreak
-  specs:
-    linebreak (2.0.0pre.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -23,6 +18,7 @@ GEM
     ffi (1.0.11-java)
     hoe (2.15.0)
       rake (~> 0.8)
+    linebreak (2.0.0pre.1)
     method_source (0.7.1)
     multi_json (1.1.0)
     pry (0.9.8.4)
@@ -64,7 +60,6 @@ PLATFORMS
 
 DEPENDENCIES
   childprocess (~> 0.3.1)
-  linebreak (~> 2.0.0pre.1)!
   linebreak-cli!
   pry (~> 0.9.8)
   rake (~> 0.9.2)

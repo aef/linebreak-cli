@@ -7,7 +7,7 @@ https://secure.travis-ci.org/aef/linebreak-cli)
 * [Documentation][docs]
 * [Project][project]
 
-   [docs]:    http://rdoc.info/projects/aef/linebreak-cli/
+   [docs]:    http://rdoc.info/github/aef/linebreak-cli/
    [project]: https://github.com/aef/linebreak-cli/
 
 Description

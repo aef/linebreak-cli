@@ -21,5 +21,3 @@ source 'http://rubygems.org'
 
 # Specify your gem's dependencies in weekling.gemspec
 gemspec
-
-gem 'linebreak', '~> 2.0.0pre.1', :git => 'git://github.com/aef/linebreak.git'

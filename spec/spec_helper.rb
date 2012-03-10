@@ -69,7 +69,7 @@ Linebreak::CLI #{Aef::Linebreak::CLI::VERSION}
 using Linebreak #{Aef::Linebreak::VERSION}
 
 Project: https://github.com/aef/linebreak-cli/
-Documentation: http://rubydoc.info/aef/linebreak-cli/
+Documentation: http://rdoc.info/github/aef/linebreak-cli/
 
 Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
 
