@@ -3,6 +3,7 @@ Linebreak::CLI
 
 [![Build Status](https://secure.travis-ci.org/aef/linebreak-cli.png)](
 https://secure.travis-ci.org/aef/linebreak-cli)
+[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/aef/linebreak-cli)
 
 * [Documentation][docs]
 * [Project][project]
@@ -135,7 +136,7 @@ If something goes wrong you should be noticed through failing examples.
 Development
 -----------
 
-### Bugs Reports and Feature Requests
+### Bug reports and feature requests
 
 Please use the [issue tracker][issues] on github.com to let me know about errors
 or ideas for improvement of this software.
@@ -144,11 +145,27 @@ or ideas for improvement of this software.
 
 ### Source code
 
-This software is developed in the source code management system git hosted
-at github.com. You can download the most recent sourcecode through the
-following command:
+This software is developed in the source code management system Git. There are
+several synchronized mirror repositories available:
 
-    git clone https://github.com/aef/linebreak-cli.git
+* GitHub
+    
+    URL: https://github.com/aef/linebreak-cli.git
+
+* Gitorious
+    
+    URL: https://git.gitorious.org/linebreak/linebreak-cli.git
+
+* BitBucket
+    
+    URL: https://bitbucket.org/alefi/linebreak-cli.git
+
+You can get the latest source code with the following command, while
+exchanging the placeholder for one of the mirror URLs:
+
+    git clone MIRROR_URL
+
+#### Tags
 
 The final commit before each released gem version will be marked by a tag
 named like the version with a prefixed lower-case "v", as required by Semantic
