@@ -1,7 +1,7 @@
 Linebreak::CLI
 ==============
 
-[![Gem Version](https://badge.fury.io/rb/linebreak-cli.png)](http://badge.fury.io/rb/linebreak-cli)
+[![Gem Version](https://badge.fury.io/rb/linebreak-cli.png)](https://badge.fury.io/rb/linebreak-cli)
 [![Build Status](https://secure.travis-ci.org/aef/linebreak-cli.png)](https://secure.travis-ci.org/aef/linebreak-cli)
 [![Dependency Status](https://gemnasium.com/aef/linebreak-cli.png)](https://gemnasium.com/aef/linebreak-cli)
 [![Code Climate](https://codeclimate.com/github/aef/linebreak-cli.png)](https://codeclimate.com/github/aef/linebreak-cli)
@@ -91,7 +91,9 @@ Requirements
 ------------
 
 * Ruby 1.9.3 or higher
-* user-choices
+* [linebreak](https://rubygems.org/gems/linebreak)
+* [user-choices](https://rubygems.org/gems/user-choices)
+* [user-choices-pathname](https://rubygems.org/gems/user-choices-pathname)
 
 Installation
 ------------
