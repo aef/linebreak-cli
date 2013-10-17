@@ -1,6 +1,6 @@
 # encoding: UTF-8
 =begin
-Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
+Copyright Alexander E. Fischer <aef@godobject.net>, 2009-2013
 
 This file is part of Linebreak::CLI.
 
@@ -23,7 +23,7 @@ Gem::Specification.new do |gem|
   gem.name    = "linebreak-cli"
   gem.version = Aef::Linebreak::CLI::VERSION.dup
   gem.authors = ["Alexander E. Fischer"]
-  gem.email   = ["aef@raxys.net"]
+  gem.email   = ["aef@godobject.net"]
   gem.description = <<-DESCRIPTION
 Linebreak::CLI is a Ruby command-line tool for conversion of text
 between linebreak encoding formats of unix, windows or mac.

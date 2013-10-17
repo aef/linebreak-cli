@@ -218,7 +218,7 @@ The following people were involved in development:
 License
 -------
 
-Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
+Copyright Alexander E. Fischer <aef@godobject.net>, 2009-2013
 
 This file is part of Linebreak::CLI.
 
