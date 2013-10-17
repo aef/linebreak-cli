@@ -78,7 +78,7 @@ using Linebreak #{Aef::Linebreak::VERSION}
 Project: https://github.com/aef/linebreak-cli/
 Documentation: http://rdoc.info/github/aef/linebreak-cli/
 
-Copyright Alexander E. Fischer <aef@raxys.net>, 2009-2012
+Copyright Alexander E. Fischer <aef@godobject.net>, 2009-2013
 
 This file is part of Linebreak::CLI.
 
