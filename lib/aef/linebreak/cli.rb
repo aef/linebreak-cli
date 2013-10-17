@@ -18,6 +18,7 @@ PERFORMANCE OF THIS SOFTWARE.
 =end
 
 require 'user-choices'
+require 'user-choices-pathname'
 require 'aef/linebreak'
 
 # Namespace for projects of Alexander E. Fischer <aef@raxys.net>.
@@ -42,7 +43,6 @@ module Aef
 end
 
 require 'aef/linebreak/cli/version'
-require 'aef/linebreak/cli/pathname_conversion'
 require 'aef/linebreak/cli/commands/encode'
 require 'aef/linebreak/cli/commands/encodings'
 require 'aef/linebreak/cli/commands/version'

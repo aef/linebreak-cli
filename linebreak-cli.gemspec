@@ -45,16 +45,17 @@ Earlier versions of Linebreak were called BreakVerter.
 
   gem.required_ruby_version = '>= 1.9.3'
 
-  gem.add_dependency('linebreak', '~> 2.0.1')
+  gem.add_dependency('linebreak', '~> 2.1.0')
   gem.add_dependency('user-choices', '~> 1.1.6.1')
+  gem.add_dependency('user-choices-pathname', '~> 1.0.0')
 
   gem.add_development_dependency('rake')
   gem.add_development_dependency('bundler')
-  gem.add_development_dependency('rspec', '~> 2.11.0')
+  gem.add_development_dependency('rspec', '~> 2.14.1')
   gem.add_development_dependency('simplecov')
   gem.add_development_dependency('pry')
   gem.add_development_dependency('yard')
-  gem.add_development_dependency('childprocess', '~> 0.3.5')
+  gem.add_development_dependency('childprocess', '~> 0.3.9')
 
   gem.cert_chain = "#{ENV['GEM_CERT_CHAIN']}".split(':')
   gem.signing_key = ENV['GEM_SIGNING_KEY']
