@@ -84,12 +84,12 @@ describe Aef::Linebreak do
         temp_file = Tempfile.open('linebreak_spec')
         location = Pathname(temp_file.path)
         temp_file.close
-        location.delete
+        location.unlink
 
         `#{executable_path} encode --system windows #{fixture_path('unix.txt')} #{location}`.should be_empty
 
         location.read.should eql(windows_fixture)
-        location.delete
+        location.unlink
       end
     end
 
